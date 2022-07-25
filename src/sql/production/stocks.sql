@@ -1,4 +1,6 @@
-CREATE TABLE production.stocks (
+USE [production];
+
+CREATE TABLE stocks (
     store_id varchar(5),
     product_id varchar(10),
     quantity INT,

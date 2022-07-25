@@ -1,4 +1,6 @@
-CREATE TABLE production.products (
+USE [production];
+
+CREATE TABLE products (
     product_id varchar(10) PRIMARY KEY,
     product_name VARCHAR (255) NOT NULL,
     brand_id varchar(5) NOT NULL,
