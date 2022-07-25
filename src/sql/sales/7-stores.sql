@@ -1,4 +1,6 @@
-CREATE TABLE sales.stores (
+USE [sales];
+
+CREATE TABLE stores (
     store_id varchar(5) PRIMARY KEY,
     store_name VARCHAR (255) NOT NULL,
     phone VARCHAR (25),

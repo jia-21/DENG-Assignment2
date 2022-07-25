@@ -1,2 +1,1 @@
--- Creating database
-    CREATE DATABASE [production];
+CREATE DATABASE [production];

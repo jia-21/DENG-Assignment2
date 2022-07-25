@@ -1,4 +1,6 @@
-CREATE TABLE sales.customers (
+USE [sales];
+
+CREATE TABLE customers (
     customer_id varchar(10) PRIMARY KEY,
     first_name VARCHAR (255) NOT NULL,
     last_name VARCHAR (255) NOT NULL,
