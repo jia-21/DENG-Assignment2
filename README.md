@@ -2,8 +2,5 @@ In the SQL folder [(Click for quick jump)](./src/sql/), run the SQL scripts in n
 
 # To-Do List
 Bulk insert for
-* Stores
-* Stocks
-* Staffs
 * Orders
 * Order_Items

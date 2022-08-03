@@ -9,5 +9,5 @@ CREATE TABLE Assignment2.sales.customers (
     street VARCHAR (255),
     city VARCHAR (50),
     state VARCHAR (25),
-    zip_code VARCHAR (5)
+    zip_code INT
 );
