@@ -1,4 +1,4 @@
--- USE [production];
+USE [Assignment2];
 
 CREATE TABLE Assignment2.production.products (
     product_id varchar(10) PRIMARY KEY,

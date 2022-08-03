@@ -1,4 +1,4 @@
--- USE [sales];
+USE [Assignment2];
 
 CREATE TABLE Assignment2.sales.staffs (
     staff_id INT PRIMARY KEY,

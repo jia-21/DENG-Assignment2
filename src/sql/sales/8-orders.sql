@@ -1,4 +1,4 @@
--- USE [sales];
+USE [Assignment2];
 
 CREATE TABLE Assignment2.sales.orders (
     order_id varchar(10) PRIMARY KEY,

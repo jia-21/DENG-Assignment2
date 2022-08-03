@@ -1,4 +1,4 @@
--- USE [production];
+USE [Assignment2];
 
 CREATE TABLE Assignment2.production.stocks (
     store_id VARCHAR(5),
