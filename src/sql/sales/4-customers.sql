@@ -1,6 +1,6 @@
 -- USE [sales];
 
-CREATE TABLE customers (
+CREATE TABLE Assignment2.sales.customers (
     customer_id varchar(10) PRIMARY KEY,
     first_name VARCHAR (255) NOT NULL,
     last_name VARCHAR (255) NOT NULL,

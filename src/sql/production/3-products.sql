@@ -1,6 +1,6 @@
 -- USE [production];
 
-CREATE TABLE products (
+CREATE TABLE Assignment2.production.products (
     product_id varchar(10) PRIMARY KEY,
     product_name VARCHAR (255) NOT NULL,
     brand_id varchar(5) NOT NULL,

@@ -1,6 +1,6 @@
 -- USE [production];
 
-CREATE TABLE stocks (
+CREATE TABLE Assignment2.production.stocks (
     store_id varchar(5),
     product_id varchar(10),
     quantity INT,

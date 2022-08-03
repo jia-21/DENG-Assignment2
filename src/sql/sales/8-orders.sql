@@ -1,6 +1,6 @@
 -- USE [sales];
 
-CREATE TABLE orders (
+CREATE TABLE Assignment2.sales.orders (
     order_id varchar(10) PRIMARY KEY,
     customer_id varchar(10),
     order_status int NOT NULL,
