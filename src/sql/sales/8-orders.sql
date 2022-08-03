@@ -8,7 +8,7 @@ CREATE TABLE Assignment2.sales.orders (
     order_date DATE NOT NULL,
     required_date DATE NOT NULL,
     shipped_date DATE,
-    store_id INT NOT NULL,
+    store_id VARCHAR(5) NOT NULL,
     staff_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES sales.customers (customer_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (store_id) REFERENCES sales.stores (store_id) ON DELETE CASCADE ON UPDATE CASCADE,

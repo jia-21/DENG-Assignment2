@@ -1,7 +1,7 @@
 -- USE [production];
 
 CREATE TABLE Assignment2.production.stocks (
-    store_id INT,
+    store_id VARCHAR(5),
     product_id varchar(10),
     quantity INT,
     PRIMARY KEY (store_id, product_id),
