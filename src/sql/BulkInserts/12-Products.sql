@@ -7,7 +7,7 @@ SELECT
 
 FROM
     OPENROWSET(
-        BULK 'C:\SP\Notes, Practicals etc\AY 2223\DENG\Assignment2\src\json\products.json' -- Replace this with your own path
+        BULK 'C:\SP\Notes, Practicals etc\AY 2223\DENG\Assignment2\src\json\products.json', -- Replace this with your own path
         SINGLE_BLOB
     ) JSON
 
