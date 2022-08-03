@@ -1,4 +1,4 @@
-USE [production];
+-- USE [production];
 
 CREATE TABLE brands (
     brand_id varchar(5) PRIMARY KEY,

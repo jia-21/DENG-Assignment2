@@ -1,4 +1,4 @@
-USE [production];
+-- USE [production];
 
 CREATE TABLE categories (
     category_id varchar(5) PRIMARY KEY,

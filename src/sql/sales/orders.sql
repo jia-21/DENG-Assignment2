@@ -1,4 +1,4 @@
-USE [sales];
+-- USE [sales];
 
 CREATE TABLE orders (
     order_id varchar(10) PRIMARY KEY,

@@ -1,4 +1,4 @@
-USE [sales];
+-- USE [sales];
 
 CREATE TABLE order_items(
     order_id varchar(10),

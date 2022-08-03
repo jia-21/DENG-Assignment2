@@ -1,4 +1,4 @@
-USE [production];
+-- USE [production];
 
 CREATE TABLE products (
     product_id varchar(10) PRIMARY KEY,

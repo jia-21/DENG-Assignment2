@@ -1,4 +1,4 @@
-USE [sales];
+-- USE [sales];
 
 CREATE TABLE staffs (
     staff_id varchar(5) PRIMARY KEY,
