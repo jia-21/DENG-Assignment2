@@ -1,4 +1,4 @@
-USE Assignment2;
+USE [Assignment2];
 
 DECLARE @Products VARCHAR(MAX);
 
