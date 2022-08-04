@@ -1,0 +1,155 @@
+USE Assignment2DW;
+
+DROP TABLE IF EXISTS CustomerDIM;
+
+DROP TABLE IF EXISTS StaffDIM;
+
+DROP TABLE IF EXISTS OrderDIM;
+
+DROP TABLE IF EXISTS StoreDIM;
+
+DROP TABLE IF EXISTS TimeDIM;
+
+DROP TABLE IF EXISTS ProductDIM;
+
+DROP TABLE IF EXISTS CategoryDIM;
+
+DROP TABLE IF EXISTS BrandDIM;
+
+DROP TABLE IF EXISTS SalesFacts;
+
+CREATE TABLE CustomerDIM (
+	CustomerKey VARCHAR(8) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	FirstName VARCHAR(10) NOT NULL,
+	Phone VARCHAR(14) NULL,
+	Email VARCHAR(50) NOT NULL,
+	Street VARCHAR(24) NOT NULL,
+	City VARCHAR(25) NOT NULL,
+	State VARCHAR(2) NOT NULL,
+	ZipCode VARCHAR(6) NOT NULL,
+	PRIMARY KEY (CustomerKey)
+);
+
+CREATE TABLE StaffDIM(
+	StaffKey VARCHAR(4) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	FirstName VARCHAR(10) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
+	Phone VARCHAR (14) NOT NULL,
+	Active bit NOT NULL,
+	StoreId VARCHAR(3) NOT NULL,
+	ManagerId VARCHAR(4) NULL,
+	PRIMARY KEY(StaffKey)
+);
+
+CREATE TABLE OrderDIM(
+	OrderKey VARCHAR(8) NOT NULL,
+	OrderStatus int NOT NULL,
+	OrderDate VARCHAR(10) NOT NULL,
+	RequiredDate VARCHAR(10) NOT NULL,
+	ShippedDate VARCHAR(10) NULL,
+	PRIMARY KEY(OrderKey)
+);
+
+CREATE TABLE StoreDIM(
+	StoreKey VARCHAR(3) NOT NULL,
+	StoreName VARCHAR(50) NOT NULL,
+	Phone VARCHAR(14) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
+	Street VARCHAR(50) NOT NULL,
+	City VARCHAR(50) NOT NULL,
+	State VARCHAR(2) NOT NULL,
+	ZipCode VARCHAR(6) NOT NULL,
+	PRIMARY KEY(StoreKey)
+);
+
+CREATE TABLE TimeDIM (
+	[TimeKey] INT PRIMARY KEY,
+	[Date] DATETIME,
+	[Month] VARCHAR(2),
+	[Year] CHAR(4),
+	[MonthName] VARCHAR(9),
+	[YearName] CHAR(7),
+	[IsHoliday] BIT,
+	[IsWeekday] BIT,
+	[DayOfMonth] VARCHAR(2),
+	[Quarter] CHAR(1),
+	[QuarterName] VARCHAR(9)
+);
+
+CREATE TABLE ProductDIM (
+	ProductKey VARCHAR(6) NOT NULL,
+	ProductName VARCHAR(255) NOT NULL,
+	BrandId VARCHAR(4) NOT NULL,
+	CategoryId VARCHAR(4) NOT NULL,
+	ModelYear VARCHAR(4) NOT NULL,
+	PRIMARY KEY(ProductKey)
+) CREATE TABLE CategoryDIM(
+	CategoryKey VARCHAR(4) NOT NULL,
+	CategoryName VARCHAR(50) NOT NULL,
+	PRIMARY KEY(CategoryKey)
+) CREATE TABLE BrandDIM(
+	BrandKey VARCHAR(4) NOT NULL,
+	BrandName VARCHAR(24) NOT NULL,
+	PRIMARY KEY(BrandKey)
+)
+ALTER TABLE
+	ProductDIM
+ADD
+	FOREIGN KEY (BrandId) REFERENCES BrandDIM(BrandKey);
+
+ALTER TABLE
+	ProductDIM
+ADD
+	FOREIGN KEY (CategoryId) REFERENCES CategoryDIM(CategoryKey);
+
+CREATE TABLE SalesFacts(
+	TimeKey int NOT NULL,
+	OrderKey VARCHAR(8) NOT NULL,
+	CustomerKey VARCHAR(8) NOT NULL,
+	StaffKey VARCHAR(4) NOT NULL,
+	ProductKey VARCHAR(6) NOT NULL,
+	StoreKey VARCHAR(3) NOT NULL,
+	ListPrice money NULL,
+	Quantity int NULL,
+	Discount real NULL,
+	CONSTRAINT SalesKey PRIMARY KEY (
+		TimeKey,
+		OrderKey,
+		CustomerKey,
+		StaffKey,
+		ProductKey,
+		StoreKey
+	)
+);
+
+ALTER TABLE
+	SalesFacts
+ADD
+	FOREIGN KEY (CustomerKey) REFERENCES CustomerDIM(CustomerKey);
+
+ALTER TABLE
+	SalesFacts
+ADD
+	FOREIGN KEY (StaffKey) REFERENCES StaffDIM(StaffKey);
+
+ALTER TABLE
+	SalesFacts
+ADD
+	FOREIGN KEY (ProductKey) REFERENCES ProductDIM(ProductKey);
+
+ALTER TABLE
+	SalesFacts
+ADD
+	FOREIGN KEY (StoreKey) REFERENCES StoreDIM(StoreKey);
+
+ALTER TABLE
+	SalesFacts
+ADD
+	FOREIGN KEY (TimeKey) REFERENCES TimeDIM(TimeKey);
+
+ALTER TABLE
+	SalesFacts
+ADD
+	FOREIGN KEY (OrderKey) REFERENCES OrderDIM(OrderKey);

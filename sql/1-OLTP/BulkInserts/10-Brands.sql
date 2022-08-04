@@ -7,3 +7,5 @@ WITH
         FIELDTERMINATOR = ' ',
         ROWTERMINATOR = '\n'
     )
+
+    
