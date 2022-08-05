@@ -1,4 +1,4 @@
-use Assignment2DW
+USE [Assignment2DW];
 
 DELETE FROM SalesFacts
 

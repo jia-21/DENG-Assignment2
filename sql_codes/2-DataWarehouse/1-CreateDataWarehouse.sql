@@ -1,4 +1,4 @@
-USE Assignment2DW;
+USE [Assignment2DW];;
 
 DROP TABLE IF EXISTS CustomerDIM;
 

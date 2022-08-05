@@ -1,4 +1,4 @@
-Use Assignment2DW
+USE [Assignment2DW];
 
 DECLARE @StartDate DATETIME = '20160101' --Starting value of Date Range
 DECLARE @EndDate DATETIME = '20171407' --End Value of Date Range
