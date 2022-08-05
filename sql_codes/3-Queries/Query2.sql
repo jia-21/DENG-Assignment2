@@ -2,13 +2,13 @@
 select
 	StaffKey,
 	StoreKey,
-	sum(ListPrice) as 'Amt Earned'
+	sum(ListPrice) as 'Amount Earned'
 from
 	SalesFacts
 Group by
 	StaffKey,
 	StoreKey
 Order by
-	'Amt Earned' asc
+	'Amount Earned' asc
 
 -- Amt earned by each staff in each store
