@@ -1,7 +1,9 @@
 USE [Assignment2DW];
 
-DECLARE @StartDate DATETIME = '20160101' --Starting value of Date Range
-DECLARE @EndDate DATETIME = '20171407' --End Value of Date Range
+USE [Assignment2DW];
+
+DECLARE @StartDate DATETIME = '2016-01-01' --Starting value of Date Range
+DECLARE @EndDate DATETIME = '2018-12-29' --End Value of Date Range
 
 DECLARE @curDate DATE
 DECLARE @FirstDayMonth DATE
@@ -39,6 +41,17 @@ while @curDate < @EndDate
 
 	  DATENAME(WeekDay, @curDate) AS DayName,
 	  DATEPART(weekDay, @curDate) AS DayOfWeekUSA,
+	
+	  -- Convert DayOfWeek in USA to UK
+	  CASE DATEPART(WeekDay, @curDate)
+		WHEN 1 THEN 7
+		WHEN 2 THEN 1
+		WHEN 3 THEN 2
+		WHEN 4 THEN 3
+		WHEN 5 THEN 4
+		WHEN 6 THEN 5
+		WHEN 7 THEN 6
+	  END AS DayOfWeekUK,
 	  
 	   -- Calcuate the Week Number with a Month
 	  DatePart(DayOfYear, @curDate) AS DayOfYear,
@@ -68,7 +81,14 @@ while @curDate < @EndDate
 	  DATEADD(Quarter, DATEDIFF(Quarter, 0, @curDate), 0) AS FirstDayOfQuarter,
 	  DATEADD(Quarter, DATEDIFF(Quarter, -1, @curDate), -1) AS LastDayOfQuarter,
 	  DateFromParts(Year(@curDate), '01', '01') as FirstDayOfYear,
-	  DateFromParts(Year(@curDate), '12', '31') as LastDayOfYear
+	  DateFromParts(Year(@curDate), '12', '31') as LastDayOfYear,
+	  NULL AS IsHolidayUSA,
+	  CASE
+		WHEN DATEPART(WeekDay, @curDate) in (1, 7) THEN 0
+		WHEN DATEPART(WeekDay, @curDate) in (2, 3, 4, 5, 6) THEN 1
+	  END as IsWeekDay,
+	  NULL AS HolidayUSA, 
+	  Null, Null    	
 		
     /* Increate @curDate by 1 day */
 	SET @curDate = DateAdd(Day, 1, @curDate)
