@@ -52,11 +52,11 @@ SELECT
 FROM
 	assignment2.sales.staffs
 
------------- OrderDIM --------------
-DELETE FROM OrderDIM
-INSERT INTO
-	Assignment2DW..OrderDIM(OrderKey, OrderStatus, OrderDate, RequiredDate, ShippedDate)
-SELECT
-	order_id, order_status, order_date, required_date, shipped_date
-FROM
-	assignment2.sales.orders
+-- ------------ OrderDIM --------------
+-- DELETE FROM OrderDIM
+-- INSERT INTO
+-- 	Assignment2DW..OrderDIM(OrderKey, OrderStatus, OrderDate, RequiredDate, ShippedDate)
+-- SELECT
+-- 	order_id, order_status, order_date, required_date, shipped_date
+-- FROM
+-- 	assignment2.sales.orders
