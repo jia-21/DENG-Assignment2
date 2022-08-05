@@ -21,20 +21,20 @@ DROP TABLE IF EXISTS SalesFacts;
 CREATE TABLE CustomerDIM (
 	CustomerKey VARCHAR(8) NOT NULL,
 	LastName VARCHAR(20) NOT NULL,
-	FirstName VARCHAR(10) NOT NULL,
+	FirstName VARCHAR(20) NOT NULL,
 	Phone VARCHAR(14) NULL,
 	Email VARCHAR(50) NOT NULL,
-	Street VARCHAR(24) NOT NULL,
-	City VARCHAR(25) NOT NULL,
+	Street VARCHAR(50) NOT NULL,
+	City VARCHAR(25) NULL,
 	State VARCHAR(2) NOT NULL,
 	ZipCode VARCHAR(6) NOT NULL,
 	PRIMARY KEY (CustomerKey)
 );
 
 CREATE TABLE StaffDIM(
-	StaffKey VARCHAR(4) NOT NULL,
+	StaffKey int NOT NULL,
 	LastName VARCHAR(20) NOT NULL,
-	FirstName VARCHAR(10) NOT NULL,
+	FirstName VARCHAR(20) NOT NULL,
 	Email VARCHAR(50) NOT NULL,
 	Phone VARCHAR (14) NOT NULL,
 	Active bit NOT NULL,
@@ -43,17 +43,8 @@ CREATE TABLE StaffDIM(
 	PRIMARY KEY(StaffKey)
 );
 
-CREATE TABLE OrderDIM(
-	OrderKey VARCHAR(8) NOT NULL,
-	OrderStatus int NOT NULL,
-	OrderDate VARCHAR(10) NOT NULL,
-	RequiredDate VARCHAR(10) NOT NULL,
-	ShippedDate VARCHAR(10) NULL,
-	PRIMARY KEY(OrderKey)
-);
-
 CREATE TABLE StoreDIM(
-	StoreKey VARCHAR(3) NOT NULL,
+	StoreKey VARCHAR(5) NOT NULL,
 	StoreName VARCHAR(50) NOT NULL,
 	Phone VARCHAR(14) NOT NULL,
 	Email VARCHAR(50) NOT NULL,
@@ -128,17 +119,15 @@ ADD
 
 CREATE TABLE SalesFacts(
 	TimeKey int NOT NULL,
-	OrderKey VARCHAR(8) NOT NULL,
 	CustomerKey VARCHAR(8) NOT NULL,
-	StaffKey VARCHAR(4) NOT NULL,
+	StaffKey int NOT NULL,
 	ProductKey VARCHAR(6) NOT NULL,
-	StoreKey VARCHAR(3) NOT NULL,
+	StoreKey VARCHAR(5) NOT NULL,
 	ListPrice money NULL,
 	Quantity int NULL,
 	Discount real NULL,
 	CONSTRAINT SalesKey PRIMARY KEY (
 		TimeKey,
-		OrderKey,
 		CustomerKey,
 		StaffKey,
 		ProductKey,
@@ -170,8 +159,3 @@ ALTER TABLE
 	SalesFacts
 ADD
 	FOREIGN KEY (TimeKey) REFERENCES TimeDIM(TimeKey);
-
-ALTER TABLE
-	SalesFacts
-ADD
-	FOREIGN KEY (OrderKey) REFERENCES OrderDIM(OrderKey);
