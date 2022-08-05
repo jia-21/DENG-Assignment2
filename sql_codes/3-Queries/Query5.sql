@@ -4,7 +4,7 @@ Select
 	count(sf.ProductKey) as 'Total Sold',
 	b.BrandName,
 	c.CategoryName,
-	sum(sf.ListPrice) as 'Amt Earned'
+	sum(sf.ListPrice) as 'Amount Earned'
 from
 	ProductDim p
 left join
@@ -22,4 +22,4 @@ group by
 order by
 	BrandName desc,
 	CategoryName desc,
-	[Amt Earned] asc
+	[Amount Earned] asc
