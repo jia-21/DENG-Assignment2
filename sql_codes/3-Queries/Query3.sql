@@ -1,0 +1,1 @@
+-- Query 3 - Sales/Seasons of Sales/time
