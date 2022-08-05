@@ -1,4 +1,6 @@
-USE [Assignment2DW];;
+-- Run twice to delete and create.
+
+USE [Assignment2DW];
 
 DROP TABLE IF EXISTS CustomerDIM;
 
