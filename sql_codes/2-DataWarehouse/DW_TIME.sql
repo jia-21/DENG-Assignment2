@@ -16,7 +16,7 @@ while @curDate < @EndDate
 	SET @QtrMonthNo = ((DatePart(Quarter, @CurDate) - 1) * 3) + 1 
     Set @FirstDayQtr = DateFromParts(Year(@curDate), @QtrMonthNo, '01')
 
-	INSERT INTO [TimeDim]
+	INSERT INTO [TimeDIM]
     select 
 	  CONVERT (char(8),@curDate,112) as TimeKey,
 	  @CurDate AS Date,
