@@ -1,8 +1,8 @@
-use assignment2DW
+use Assignment2DW
 
 DELETE FROM SalesFacts
 
-INSERT INTO assignment2DW..SalesFacts
+INSERT INTO Assignment2DW..SalesFacts
 (
   TimeKey,StoreKey, CustomerKey,StaffKey,
   ProductKey,OrderKey, ListPrice, Quantity, Discount)

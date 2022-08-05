@@ -1,4 +1,4 @@
-use assignment2DW;
+use Assignment2DW;
 /*
 alter table SalesFacts
 drop constraint CustomerKey;
